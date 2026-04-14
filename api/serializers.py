@@ -33,6 +33,12 @@ class CarSerializer(serializers.ModelSerializer):
 
         return value
 
+class CarAdminSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Car
+        fields = ('name','color','year')
+        read_only_fileds = ('id')
+
 #-----------------------Drive----------------------------------------------------------------
 
 class DriveSerializer(serializers.ModelSerializer):
@@ -73,4 +79,10 @@ class DriveSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Yosh 15 dan katta bolishi va 100 dan kichik bolishi kerak")
 
         return value
+
+class DriveAdminSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Car
+        fields = ('name','phone','price','age')
+        read_only_fileds = ('id')
 
